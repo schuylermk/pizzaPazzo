@@ -34,6 +34,6 @@ Pizza.prototype.price = function() {
     pizzaPrice += 2;
   } else if (this.extra === "due gramme di tartufo bianco") {
     pizzaPrice += 15;
-  } else {}
+  } else { } 
   return "$" + pizzaPrice.toFixed(2);
 }
