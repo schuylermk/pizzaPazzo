@@ -1,16 +1,78 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.12.0.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
-    <title>Ping Count Pong</title>
+    <title>..osteria pizzaPazza..</title>
   </head>
   <body>
+    <div class="container">
+      <h1>dal fiume alla collina</h1>
+      <h3>Le pizze come in three sizes, seven varieties. Additionally, you may choose to add your own personal touch with one of our extras...   <em> Explore below!</em> </h3>
 
+      <form class="form-inline" id="pizza-pencil">
+        <div class="form-group">
+          <label for="type">Varieties:</label>
+          <label for="type">Le Sette Sorelle...</label>
+           <select id="type">
+             <option id="margherita">Margherita (tomato, mozz., basil)</option>
+             <option id="margherita con bufala">Margherita with Buffalo Mozzarella</option>
+             <option id="marinara">Marinara - (tomato, garlic, oreg., basil) Sm.$5, Med. $7, Lg. $9</option>
+             <option id="pizza al 4 stagioni">Pizza al Four Seasons (tomato, prosciutto, porcini, olive and anchovy)</option>
+             <option id="salsiccia e friarielli">Sausage and Broccoli Rabe w/ Provola</option>
+             <option id="tonnata">Tuna w/ Fior di Latte</option>
+             <option id="wurstel e patatine">Wurstel e Patatine (hotDog and frenchfries... sì, davvero!)</option>
+           </select>
+        </div>
+        <div class="form-group">
+          <label for="size" id="size">Size of Pizze:</label>
+           <select id="size">
+             <option id="small">Small - 20cm (Bambini)</option>
+             <option id="medium">Medium - 35cm</option>
+             <option id="large">Large - 50cm</option>
+           </select>
+        </div>
+      </form>
+        <div class="form-group row">
+          <label class="col-sm-2">Extras!</label>
+          <div class="col-sm-10">
+            <div class="checkbox" id="extra">
+              <label>
+                <input type="checkbox"name="gridRadios" id="gridRadios1" value="option1" unchecked>Anchovies!
+              </label>
+            </div>
+            <div class="checkbox" id="extra">
+              <label>
+                <input type="checkbox"name="gridRadios" id="gridRadios2" value="option2" unchecked>Handful of hard Cheese... Grana Padano!
+              </label>
+            </div>
+            <div class="checkbox" id="extra">
+              <label>
+                <input type="checkbox"name="gridRadios" id="gridRadios3" value="option3" unchecked>Chili Oil... Olio di Peperoncini diavoletti!
+              </label>
+            </div>
+            <div class="checkbox" id="extra">
+              <label>
+                <input type="checkbox"name="gridRadios" id="gridRadios4" value="option4" unchecked>White Truffles! Tartufo bianco! (2 grams-shaved over)
+              </label>
+            </div>
+          </div>
+        </div>
+    </div>
+      <div class="container">
+        <fieldset class="form-group">
+          <label for="special">Special Instructions?</label>
+          <textarea class="form-control" id="special" rows="3"></textarea>
+        </fieldset>
+        <button type="submit" class="btn">Add it up!</button>
+      </div>
+
+
+      <div id="results">
+        <h3>We'll start making your <span class="pizza-size"></span> at <span class="pizza-type"></span> right away! You're going to owe us <span class="pizza-price"></span>.</h3>
+      </div>
+    </div>
   </body>
 </html>

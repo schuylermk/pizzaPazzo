@@ -1,0 +1,25 @@
+body {
+  background-color: #f7f6ef;
+}
+
+#special {
+  width: 500px;
+}
+
+h1 {
+  float: right;
+}
+
+h3 {
+  margin-top: 75px;
+  width: 40%;
+}
+
+label#size {
+  margin-left: 50px;
+}
+
+#pizza-pencil {
+  text-align: center;
+  padding: 50px;
+}

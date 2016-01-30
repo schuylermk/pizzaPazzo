@@ -10,8 +10,6 @@ Pizza.prototype.price = function() {
     pizzaPrice += 1;
   } else if (this.type === "margherita con bufala") {
     pizzaPrice += 2;
-  } else if (this.type === "capricciosa") {
-    pizzaPrice += 2;
   } else if (this.type === "tonnata") {
     pizzaPrice += 2;
   } else if (this.type === "wurstel e patatine") {
@@ -34,6 +32,6 @@ Pizza.prototype.price = function() {
     pizzaPrice += 2;
   } else if (this.extra === "due gramme di tartufo bianco") {
     pizzaPrice += 15;
-  } else { } 
+  } else { }
   return "$" + pizzaPrice.toFixed(2);
 }
