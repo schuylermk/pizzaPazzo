@@ -4,55 +4,72 @@ function Pizza(type, size, extra) {
   this.extra = extra;
 }
 
-Pizza.prototype.price = function() {
-  var pizzaPrice = 5;
-
-// Types of pizze
-  if(this.type === "margherita") {
-    pizzaPrice += 1;
+Pizza.prototype.types = function() {
+  if (this.type === "marinara") {
+    return 5;
+  } else if (this.type === "margherita") {
+    return 6;
   } else if (this.type === "margherita con bufala") {
-    pizzaPrice += 2;
+    return 7;
   } else if (this.type === "tonnata") {
-    pizzaPrice += 2;
+    return 7;
   } else if (this.type === "wurstel e patatine") {
-    pizzaPrice += 3;
+    return 8;
   } else if (this.type === "salsiccia e friarielli") {
-    pizzaPrice += 3;
-  } else if (this.type === "pizza al 4 stagioni") {
-    pizzaPrice += 4;
-  } else {}
-// Size Upcharges
+    return 8;
+  } else {
+    return 9;
+  }
+}
+
+// Size Pricing
+Pizza.prototype.sizes = function() {
   if (this.size === "medium") {
-    pizzaPrice += 2;
+    return 2;
   } else if (this.size === "large") {
-    pizzaPrice += 4;
-  } else {}
+    return 4;
+  } else {
+    return 0;
+  }
+}
+
 // Extras
-  if ((this.extra === "rucola") || (this.extra === "grana")) {
-    pizzaPrice += 1;
-  } else if ((this.extra === "acchiughe") || (this.extra === "olio di peperoncini diavoletti")) {
-    pizzaPrice += 2;
-  } else if (this.extra === "due gramme di tartufo bianco") {
-    pizzaPrice += 15;
-  } else { }
-  return "$" + pizzaPrice.toFixed(2);
+Pizza.prototype.extras = function() {
+  if (this.extra === "rucola") {
+    return 1;
+  } else if (this.extra === "grana") {
+    return 1;
+  } else if (this.extra === "acchiughe") {
+    return 2;
+  } else if (this.extra === "olio") {
+    return 2;
+  } else if (this.extra === "tartufi") {
+    return 15;
+  } else {}
+}
+
+Pizza.prototype.totals = function() {
+  return this.types() + this.sizes() + this.extras();
 }
 
 $(document).ready(function() {
-  $("form.pizza-pencil").submit(function(event) {
+  var initialPrice = 0;
+  $("#pizza-pencil").submit(function(event) {
     event.preventDefault();
     var inputType = $("select#type").val();
     var inputSize = $("select#size").val();
-    // $("form#more").submit(function(event) {
-    //   var inputExtra = ($("input#extra").val());
+    var inputExtra = $("input#extra").val();
+    var newPizza = new Pizza(inputType, inputSize, inputExtra);
+    var pizzaPrice = newPizza.totals();
+    var woodOven = [];
 
-      var hotPizza = new Pizza(inputType, inputSize, inputExtra);
 
-      $(".pizza-price").text(hotPizza.price());
-      $(".pizza-type").text(hotPizza.type);
-      $(".pizza-size").text(hotPizza.size);
-      // $(".pizza-extra")
-      $("#results").show();
-    // });
+    woodOven.push(newPizza);
+    woodOven.forEach(function(pizza) {
+      $("ul#selections").append('<li>' + 'We\'ll start making your' + ' ' + pizza.size + ' ' + pizza.type + ' right away!' + '</li>');
+      return initialPrice += pizzaPrice;
+    });
+
+      $("ul#totalPrice").append('<li>' + 'Your total is going to be $' + pizzaPrice + '. Thanks!' + '</li>');
   });
 });

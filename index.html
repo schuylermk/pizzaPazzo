@@ -12,64 +12,59 @@
       <h1>dal fiume alla collina</h1>
       <h3>Le pizze come in three sizes, seven varieties. Additionally, you may choose to add your own personal touch with one of our extras...   <em> Explore below!</em> </h3>
 
-      <form id="pizza-pencil" class="form-inline">
+      <form class="form-inline" id="pizza-pencil">
         <div class="form-group">
-          <label for="type">Varieties:</label>
-          <label for="type">Le Sette Sorelle...</label>
-           <select id="type">
-             <option id="margherita">Margherita (tomato, mozz., basil)</option>
-             <option id="margherita con bufala">Margherita with Buffalo Mozzarella</option>
-             <option id="marinara">Marinara - (tomato, garlic, oreg., basil) Sm.$5, Med. $7, Lg. $9</option>
-             <option id="pizza al 4 stagioni">Pizza al Four Seasons (tomato, prosciutto, porcini, olive and anchovy)</option>
-             <option id="salsiccia e friarielli">Sausage and Broccoli Rabe w/ Provola</option>
-             <option id="tonnata">Tuna w/ Fior di Latte</option>
-             <option id="wurstel e patatine">Wurstel e Patatine (hotDog and frenchfries... sì, davvero!)</option>
-           </select>
+          <label for="type">Varieties... I Nostri Sette Sorelle:</label>
+            <select id="type">
+              <option id="margherita">Margherita (tomato, mozz., basil)</option>
+              <option id="margherita con bufala">Margherita with Buffalo Mozzarella</option>
+              <option id="marinara">Marinara (tomato, garlic, oreg., basil)</option>
+              <option id="pizza al 4 stagioni">Pizza al Four Seasons (tomato, prosciutto, porcini, olive and anchovy)</option>
+              <option id="salsiccia e friarielli">Sausage and Broccoli Rabe w/ Provola</option>
+              <option id="tonnata">Tuna w/ Fior di Latte</option>
+              <option id="wurstel e patatine">Wurstel e Patatine (hotDog and frenchfries... si, davvero!)</option>
+            </select>
         </div>
         <div class="form-group">
-          <label for="size" id="size">Size of Pizze:</label>
+          <label for="size">Sizes of Pizze:</label>
            <select id="size">
-             <option id="small">Small - 20cm (Bambini)</option>
-             <option id="medium">Medium - 35cm</option>
-             <option id="large">Large - 50cm</option>
+             <option id="small">small (20cm)</option>
+             <option id="medium">medium (35cm)</option>
+             <option id="large">large (50cm)</option>
            </select>
         </div>
-      <div id="results">
-        <h3>We'll start making your <span class="pizza-size"></span> at <span class="pizza-type"></span> right away! You're going to owe us <span class="pizza-price"></span>.</h3>
-      </div>
 
-        <div class="form-group row" id="more">
-          <label class="col-sm-2">Extras!</label>
-          <div class="col-sm-10">
-            <div class="checkbox" id="extra">
-              <label>
-                <input type="checkbox"name="gridRadios" id="gridRadios1" value="option1" unchecked>Anchovies!
-              </label>
-            </div>
+        <h3>Extras!</h3>
+          <div class="checkbox" id="extra">
+            <label>
+              <input type="checkbox"name="gridRadios" id="acchiughe" value="option1" unchecked>Anchovies
+            </label>
           </div>
-          <div class="col-sm-10">
-            <div class="checkbox" id="extra">
-              <label>
-                <input type="checkbox"name="gridRadios" id="gridRadios2" value="option2" unchecked>Handful of hard Cheese... Grana Padano!
-              </label>
-            </div>
+
+          <div class="checkbox" id="extra">
+            <label>
+              <input type="checkbox"name="gridRadios" id="rucola" value="option2" unchecked>Arugala
+            </label>
           </div>
-          <div class="col-sm-10">  
-            <div class="checkbox" id="extra">
-              <label>
-                <input type="checkbox"name="gridRadios" id="gridRadios3" value="option3" unchecked>Chili Oil... Olio di Peperoncini diavoletti!
-              </label>
-            </div>
+
+          <div class="checkbox" id="extra">
+            <label>
+              <input type="checkbox"name="gridRadios" id="grana" value="option3" unchecked>Handful of Grated Grana Padano
+            </label>
           </div>
-          <div class="col-sm-10">
-            <div class="checkbox" id="extra">
-              <label>
-                <input type="checkbox"name="gridRadios" id="gridRadios4" value="option4" unchecked>White Truffles! Tartufo bianco! (2 grams-shaved over)
-              </label>
-            </div>
+
+          <div class="checkbox" id="extra">
+            <label>
+              <input type="checkbox"name="gridRadios" id="olio" value="option4" unchecked>Olio di Peperoncini diavoletti (chili oil)
+            </label>
           </div>
+
+          <div class="checkbox" id="extra">
+            <label>
+              <input type="checkbox"name="gridRadios" id="tartufi" value="option5" unchecked>Shaved Tartufi Bianchi (2 grams fresh white truffle)
+            </label>
           </div>
-        </div>
+
         <div class="container row">
           <div class="col-sm-2">
             <fieldset class="form-group">
@@ -84,9 +79,19 @@
         </div>
         <button type="submit" class="btn">Add it up!</button>
       </form>
-
     </div>
+    <div id="results" class="container">
+      <h2>Won't be long now...</h2>
+      <div id="selections">
+        <ul>
 
+        </ul>
+      </div>
+      <div id="totalPrice">
+        <ul>
+          
+        </ul>
+      </div>
     </div>
   </body>
 </html>
