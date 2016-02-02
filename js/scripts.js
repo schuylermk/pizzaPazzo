@@ -66,10 +66,10 @@ $(document).ready(function() {
 
     woodOven.push(newPizza);
     woodOven.forEach(function(pizza) {
-      $("ul#selections").append('<li>' + 'We\'ll start making your' + ' ' + pizza.size + ' ' + pizza.type + ' right away!' + '</li>');
+      $("div#selections").append('<li>' + 'We\'ll start making your' + ' ' + pizza.size + ' ' + pizza.type + ' right away!' + '</li>');
       return initialPrice += pizzaPrice;
     });
 
-      $("ul#totalPrice").append('<li>' + 'Your total is going to be $' + pizzaPrice + '. Thanks!' + '</li>');
+      $("div#totalPrice").append('<li>' + 'Your total is going to be $' + pizzaPrice + '. Thanks!' + '</li>');
   });
 });
