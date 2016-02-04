@@ -20,7 +20,7 @@ function Pizza(type, size, extra) {
     } else {
       return +10;
     }
-  }
+  };
   // Pricing by size...
   Pizza.prototype.sizePrice = function() {
     if (this.size === "medium (35cm)") {
@@ -30,52 +30,59 @@ function Pizza(type, size, extra) {
     } else {
     return +0;
     }
-  }
+  };
   // Pricing the extras...
   Pizza.prototype.extraPrice = function() {
-    if (this.extra === "arugala") {
-      return +1;
-    } if (this.extra === "grana padano") {
-      return +1;
-    } if (this.extra === "anchovies") {
-      return +2;
-    } if (this.extra === "olio di peperoncini") {
-      return +2;
-    } if (this.extra === "tartufi"){
-      return +15;
-    }
-  }
+    var extraCost = 0;
+    this.extra.forEach(function(extraTopping) {
+      if (extraTopping === "arugala") {
+        extraCost += 1;
+      }
+      if (extraTopping === "grana padano") {
+        extraCost += 1;
+      }
+      if (extraTopping === "anchovies") {
+        extraCost += 2;
+      }
+      if (extraTopping === "olio di peperoncini") {
+        extraCost += 2;
+      }
+      if (extraTopping === "tartufi"){
+        extraCost += 15;
+      }
+    });
+    return extraCost;
+  };
 
   Pizza.prototype.pizzaPrice = function() {
    return this.typePrice() + this.sizePrice() + this.extraPrice();
-  }
+  };
 
 
 $(document).ready(function() {
   var wholePrice = 0;
-
   $("form#pizza-pencil").submit(function(event) {
     event.preventDefault();
 
     var inputType = $("select#type").val();
     var inputSize = $("select#size").val();
-    var inputExtra = $("input[name='extra']:checked").val();
+
+    // You have multiple inputs, so $("input:checkbox[name=extra]:checked") will return an array
+    // Try running a .forEach(function(extra) { push to array })
+    // var inputExtra = $("input:checkbox[name=extra]:checked").val();
+    var inputExtra = [];
+    $("input:checkbox[name='extra']:checked").each(function() {
+      inputExtra.push($(this).val());
+    });
+
     var newPizza = new Pizza(inputType, inputSize, inputExtra);
     var newPrice = newPizza.pizzaPrice();
-    var pizzaOven = [];
-
-    pizzaOven.push(newPizza);
-
-    pizzaOven.forEach(function(pizza) {
+    wholePrice += newPrice;
 
     $("div#results").show();
-    $("div#selections").append('<li>' + 'We\'ll start making your' + ' ' + pizza.size + ' ' + pizza.type + ' right away!' + '</li>');
-    return wholePrice += newPrice;
-    });
-    // $("div#wholePrice").each(function(){
-    //   reset();
-    // });
-    $("div#wholePrice").append('<li>' + 'Your new total is going to be $' + wholePrice + '.     Grazie mille!' + '</li>');
+    $("div#selections").append('<li>' + 'We\'ll start making your' + ' ' + newPizza.size + ' ' + newPizza.type + ' right away!' + '</li>');
+
+    $("div#wholePrice").empty().append('<li>' + 'Your new total is going to be $' + wholePrice + '.     Grazie mille!' + '</li>');
   });
 });
 
