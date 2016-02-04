@@ -3,56 +3,61 @@ function Pizza(type, size, extra) {
   this.size = size;
   this.extra = extra;
 }
-  //Pricing by type...
-  Pizza.prototype.typePrice = function() {
-    if (this.type === "Marinara (tomato, garlic, oreg., basil)") {
-      return +5;
-    } else if (this.type === "Margherita (tomato, mozz., basil)") {
-      return +6;
-    } else if (this.type === "Margherita with Buffalo Mozzarella") {
-      return +7;
-    } else if (this.type === "Tuna w/ Fior di Latte") {
-      return +7;
-    } else if (this.type === "Wurstel e Patatine") {
-      return +8;
-    } else if (this.type === "Sausage and Broccoli Rabe w/ Provola") {
-      return +8;
-    } else {
-      return +10;
-    }
-  };
-  // Pricing by size...
-  Pizza.prototype.sizePrice = function() {
-    if (this.size === "medium (35cm)") {
-       return +2;
-    } else if (this.size === "large (50cm)") {
-      return +4;
-    } else {
-    return +0;
-    }
-  };
-  // Pricing the extras...
-  Pizza.prototype.extraPrice = function() {
-    var extraCost = 0;
-    this.extra.forEach(function(extraTopping) {
-      if (extraTopping === "arugala") {
-        extraCost += 1;
-      } if (extraTopping === "grana padano") {
-        extraCost += 1;
-      } if (extraTopping === "anchovies") {
-        extraCost += 2;
-      } if (extraTopping === "olio di peperoncini") {
-        extraCost += 2;
-      } if (extraTopping === "tartufi"){
-        extraCost += 15;
-      }
-    });
-    return extraCost;
-  };
 
-  Pizza.prototype.pizzaPrice = function() {
-   return this.typePrice() + this.sizePrice() + this.extraPrice();
-  };
+//Pricing by type...
+Pizza.prototype.typePrice = function() {
+  var startungCs
+  if (this.type === "Marinara (tomato, garlic, oreg., basil)") {
+    return 5;
+  } else if (this.type === "Margherita (tomato, mozz., basil)") {
+    return 6;
+  } else if (this.type === "Margherita with Buffalo Mozzarella") {
+    return 7;
+  } else if (this.type === "Tuna w/ Fior di Latte") {
+    return 7;
+  } else if (this.type === "Wurstel e Patatine") {
+    return 8;
+  } else if (this.type === "Sausage and Broccoli Rabe w/ Provola") {
+    return 8;
+  } else {
+    return 10;
+  }
+};
+
+// Pricing by size...
+Pizza.prototype.sizePrice = function() {
+  if (this.size === "medium (35cm)") {
+     return 2;
+  } else if (this.size === "large (50cm)") {
+    return 4;
+  } else {
+  return 0;
+  }
+};
+
+// Pricing the extras...
+Pizza.prototype.extraPrice = function() {
+  var extraCost = 0;
+  this.extra.forEach(function(extraTopping) {
+    if (extraTopping === "arugala") {
+      extraCost += 1;
+    } if (extraTopping === "grana padano") {
+      extraCost += 1;
+    } if (extraTopping === "anchovies") {
+      extraCost += 2;
+    } if (extraTopping === "olio di peperoncini") {
+      extraCost += 2;
+    } if (extraTopping === "tartufi"){
+      extraCost += 15;
+    }
+  });
+  return extraCost;
+};
+
+Pizza.prototype.pizzaPrice = function() {
+ return this.typePrice() + this.sizePrice() + this.extraPrice();
+};
+
 $(document).ready(function() {
   var wholePrice = 0;
   $("form#pizza-pencil").submit(function(event) {
