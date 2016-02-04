@@ -23,9 +23,9 @@ function Pizza(type, size, extra) {
   }
   // Pricing by size...
   Pizza.prototype.sizePrice = function() {
-    if (this.size === "medium") {
+    if (this.size === "medium (35cm)") {
        return +2;
-    } else if (this.size === "Large") {
+    } else if (this.size === "large (50cm)") {
       return +4;
     } else {
     return +0;
@@ -33,14 +33,16 @@ function Pizza(type, size, extra) {
   }
   // Pricing the extras...
   Pizza.prototype.extraPrice = function() {
-    if (this.extra === "rucola" || this.extra === "grana") {
+    if (this.extra === "arugala") {
       return +1;
-    } else if (this.extra === "acchiughe" || this.extra === "olio") {
+    } if (this.extra === "grana padano") {
+      return +1;
+    } if (this.extra === "anchovies") {
       return +2;
-    } else if (this.extra === "tartufi") {
+    } if (this.extra === "olio di peperoncini") {
+      return +2;
+    } if (this.extra === "tartufi"){
       return +15;
-    } else {
-    return +0;
     }
   }
 
@@ -70,8 +72,10 @@ $(document).ready(function() {
     $("div#selections").append('<li>' + 'We\'ll start making your' + ' ' + pizza.size + ' ' + pizza.type + ' right away!' + '</li>');
     return wholePrice += newPrice;
     });
-
-    $("div#wholePrice").append('<li>' + 'Your total is going to be $' + wholePrice + '     Grazie mille!' + '</li>');
+    // $("div#wholePrice").each(function(){
+    //   reset();
+    // });
+    $("div#wholePrice").append('<li>' + 'Your new total is going to be $' + wholePrice + '.     Grazie mille!' + '</li>');
   });
 });
 

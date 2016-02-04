@@ -7,22 +7,22 @@ describe("Pizza", function() {
   });
 // Types of pizzas
   it("returns the pizza price based on the type", function() {
-    var newPizza = new Pizza("marinara", "small", "grana");
+    var newPizza = new Pizza("Marinara (tomato, garlic, oreg., basil)", "small", "grana padano");
     expect(newPizza.typePrice()).to.equal(5);
   });
 // Sizes of pizzas
   it("returns the pizza price based on the size", function() {
-    var newPizza = new Pizza("marinara", "medium", "grana");
+    var newPizza = new Pizza("Marinara (tomato, garlic, oreg., basil)", "medium (35cm)", "grana padano");
     expect(newPizza.sizePrice()).to.equal(2);
   });
 // Additions
   it("increases a set amount for extras to price of a pizza", function() {
-    var newPizza = new Pizza("marinara", "small", "grana");
+    var newPizza = new Pizza("Marinara (tomato, garlic, oreg., basil)", "medium (35cm)", "grana padano");
     expect(newPizza.extraPrice()).to.equal(1);
   });
   // Total price
   it("adds up the total price of a pizza", function() {
-    var newPizza = new Pizza("marinara", "small", "grana");
+    var newPizza = new Pizza("Marinara (tomato, garlic, oreg., basil)", "small (20cm)", "grana padano");
     expect(newPizza.pizzaPrice()).to.equal(6);
   });
 });
