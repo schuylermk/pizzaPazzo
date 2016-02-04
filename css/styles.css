@@ -23,3 +23,7 @@ label#size {
   text-align: left;
   padding: 50px;
 }
+
+div#results {
+  display: none;
+}

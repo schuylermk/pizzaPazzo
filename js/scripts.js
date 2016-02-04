@@ -3,73 +3,78 @@ function Pizza(type, size, extra) {
   this.size = size;
   this.extra = extra;
 }
-
-Pizza.prototype.price = function() {
-  var pizzaPrice = 0;
-  var typePrice = 0;
-  var sizePrice = 0;
-  var extraPrice = 0;
-
   //Pricing by type...
-  Pizza.prototype.type = function() {
-    if (this.type === "marinara") {
-      typePrice += 5;
-    } else if (this.type === "margherita") {
-      typePrice += 6;
-    } else if (this.type === "margherita con bufala") {
-      typePrice += 7;
-    } else if (this.type === "tonnata") {
-      typePrice += 7;
-    } else if (this.type === "wurstel e patatine") {
-      typePrice += 8;
-    } else if (this.type === "salsiccia e friarielli") {
-      typePrice += 8;
+  Pizza.prototype.typePrice = function() {
+    if (this.type === "Marinara (tomato, garlic, oreg., basil)") {
+      return +5;
+    } else if (this.type === "Margherita (tomato, mozz., basil)") {
+      return +6;
+    } else if (this.type === "Margherita with Buffalo Mozzarella") {
+      return +7;
+    } else if (this.type === "Tuna w/ Fior di Latte") {
+      return +7;
+    } else if (this.type === "Wurstel e Patatine") {
+      return +8;
+    } else if (this.type === "Sausage and Broccoli Rabe w/ Provola") {
+      return +8;
     } else {
-      typePrice += 9;
+      return +10;
     }
-    return typePrice;
   }
   // Pricing by size...
-  Pizza.prototype.size = function() {
+  Pizza.prototype.sizePrice = function() {
     if (this.size === "medium") {
-       sizePrice += 2;
-    } else if (this.size === "large") {
-      sizePrice += 4;
-    } else {}
+       return +2;
+    } else if (this.size === "Large") {
+      return +4;
+    } else {
+    return +0;
+    }
+  }
+  // Pricing the extras...
+  Pizza.prototype.extraPrice = function() {
+    if (this.extra === "rucola" || this.extra === "grana") {
+      return +1;
+    } else if (this.extra === "acchiughe" || this.extra === "olio") {
+      return +2;
+    } else if (this.extra === "tartufi") {
+      return +15;
+    } else {
+    return +0;
+    }
   }
 
-  // Pricing the extras...
-  Pizza.prototype.extra = function() {
-    if (this.extra === "rucola" || this.extra === "grana") {
-      extraPrice += 1;
-    } else if (this.extra === "acchiughe" || this.extra === "olio") {
-      extraPrice += 2;
-    } else if (this.extra === "tartufi") {
-      extraPrice += 15;
-    } else {}
+  Pizza.prototype.pizzaPrice = function() {
+   return this.typePrice() + this.sizePrice() + this.extraPrice();
   }
-  pizzaPrice = typePrice + sizePrice + extraPrice;
-  // return '$' + pizzaPrice.toFixed(2);
-}
+
 
 $(document).ready(function() {
-  $(".btn").click(function(event) {
+  var wholePrice = 0;
+
+  $("form#pizza-pencil").submit(function(event) {
     event.preventDefault();
+
     var inputType = $("select#type").val();
     var inputSize = $("select#size").val();
-    var inputExtras = [];
-    $("#extra input[type=checkbox]:checked").each ( function() {
-   alert ( $(this).val()); });
+    var inputExtra = $("input[name='extra']:checked").val();
     var newPizza = new Pizza(inputType, inputSize, inputExtra);
-    var pizzaPrice = newPizza.price();
-    var woodOven = [];
+    var newPrice = newPizza.pizzaPrice();
+    var pizzaOven = [];
 
+    pizzaOven.push(newPizza);
 
-    woodOven.push(newPizza);
-    woodOven.forEach(function(pizza) {
-      $("div#selections").append('<li>' + 'We\'ll start making your' + ' ' + pizza.size + ' ' + pizza.type + ' right away!' + '</li>');
+    pizzaOven.forEach(function(pizza) {
+
+    $("div#results").show();
+    $("div#selections").append('<li>' + 'We\'ll start making your' + ' ' + pizza.size + ' ' + pizza.type + ' right away!' + '</li>');
+    return wholePrice += newPrice;
     });
 
-      $("div#totalPrice").append('<li>' + 'Your total is going to be $' + pizzaPrice + '. Thanks!' + '</li>');
+    $("div#wholePrice").append('<li>' + 'Your total is going to be $' + wholePrice + '     Grazie mille!' + '</li>');
   });
 });
+
+// // if (extra > 0) {
+// //   append('<li>' + '...and don\'t worry, we didn\'t forget the ' +  )
+// // }
