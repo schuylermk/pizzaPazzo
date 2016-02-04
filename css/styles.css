@@ -27,3 +27,13 @@ label#size {
 div#results {
   display: none;
 }
+
+.form-horizontal, .btn {
+  margin-bottom: 30px;
+}
+
+img {
+  opacity: .4;
+  float: right;
+  transform: scale(1.7);
+}
