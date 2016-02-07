@@ -1,5 +1,6 @@
 body {
   background-color: #f7f6ef;
+  box-sizing: border-box;
 }
 
 #special {
@@ -15,8 +16,20 @@ h3 {
   width: 40%;
 }
 
-label#size {
-  margin-left: 50px;
+div#pizzaSize {
+  margin-left: 40px;
+}
+
+label#type {
+  margin: 10px;
+}
+
+select#type, select#size {
+  margin: 10px;
+}
+
+input[type=checkbox] {
+  margin: 10px 10px 0 0;
 }
 
 #pizza-pencil {
@@ -34,6 +47,7 @@ div#results {
 
 img {
   opacity: .4;
+  margin-top: -150px;
   float: right;
-  transform: scale(1.7);
+  transform: scale(1.6);
 }
