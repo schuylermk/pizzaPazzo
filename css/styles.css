@@ -2,38 +2,114 @@ body {
   background-color: #f7f6ef;
 }
 
-#special {
-  width: 500px;
+.container {
+  opacity: 1;
+}
+.wrapper {
+  background-image: url(pazzOut.png);
+  background-position: right;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+}
+
+.intro {
+  margin: 2%;
+  padding: 0 50px 0 20px;
+}
+.intro-left {
+  display: inline-block;
+  /*margin-top: 40px;*/
 }
 
 h1 {
+  color: maroon;
   float: right;
+  padding: 8px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background: white;
+  opacity: .9;
 }
-
-h3 {
-  margin-top: 75px;
-  width: 40%;
+h3{
+  color: green;
 }
-
-label#size {
-  margin-left: 50px;
+h4 {
+  margin: 20px 0 20px 50px;
+  width: 30%;
 }
 
 #pizza-pencil {
-  text-align: left;
-  padding: 50px;
+  padding: 0 5%;
 }
+
+label {
+  color: tomato;
+}
+.selectors {
+  margin: 0;
+}
+
+.var-selector {
+  float: left;
+  margin-right: 1  0%;
+}
+.var-selector label {
+  text-align: center;
+  margin-bottom: -20px;
+}
+
+.size-selector {
+  background-color: white;
+  border: 1px dotted lime;
+  border-radius: 3px;
+  float: right;
+  margin-right: 30%;
+  opacity: .9;
+  padding: 0 10px 5px 10px;
+}
+.selectasize select {
+  background-color: #f7f6ef;
+  color: red;
+  text-align: center;
+  width: 150px;
+}
+.size-selector label {
+
+}
+
+
+.extras {
+  margin-top: 60px;
+  width: 40%;
+  text-align: left;
+}
+.extras h3 {
+  text-align: center;
+}
+.extras label {
+  color: inherit;
+}
+.extras input {
+  margin-right: 10px;
+}
+
+.btn {
+  text-align: center;
+  margin: 20px 35%;
+  border: 1px solid red;
+  color: green;
+  background-color: tomato;
+}
+
+
 
 div#results {
   display: none;
 }
 
-.form-horizontal, .btn {
-  margin-bottom: 30px;
-}
 
 img {
+  z-index: -1;
   opacity: .4;
   float: right;
-  transform: scale(1.7);
 }

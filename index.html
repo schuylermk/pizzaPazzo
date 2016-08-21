@@ -8,63 +8,84 @@
     <title>..osteria pizzaPazza..</title>
   </head>
   <body>
-    <div class="container">
-      <h1>dal fiume alla collina</h1>
-      <h3>Le pizze come in three sizes, seven varieties. Additionally, you may choose to add your own personal touch with one of our extras...   <em> Explore below!</em> </h3>
+    <div class="wrapper">
+      <div class="container">
 
-      <form class="form-inline" id="pizza-pencil">
-        <div class="form-group">
-          <label for="type">Varieties... I Nostri Sette Sorelle:</label>
-            <select id="type">
-              <option >Marinara (tomato, garlic, oreg., basil)</option>
-              <option >Margherita (tomato, mozz., basil)</option>
-              <option >Margherita with Buffalo Mozzarella</option>
-              <option >Pizza al Four Seasons (tomato, prosciutto, porcini, olives and anchovies)</option>
-              <option >Sausage and Broccoli Rabe w/ Provola</option>
-              <option >Tuna w/ Fior di Latte</option>
-              <option >Wurstel e Patatine</option>
-            </select>
-        </div>
-        <div class="form-group">
-          <label for="size">Sizes of Pizze:</label>
-           <select id="size">
-             <option id="small">small (20cm)</option>
-             <option id="medium">medium (35cm)</option>
-             <option id="large">large (50cm)</option>
-           </select>
+        <div class="intro">
+          <h1>dal fiume alla collina</h1>
+          <div class="intro-left">
+            <h3>Le pizze come in three sizes, and seven varieties.</h3>
+            <h4>Additionally, you may choose to add your own personal touch with one of our extras...
+            <br><br>
+            <em>&nbsp;&nbsp;&nbsp;Explore below!</em> </h4>
+          </div>
         </div>
 
-        <h3>Extras!</h3>
-        <div class="form-horizontal">
-          <div class="checkbox">
-            <label id="anchovies"><input type="checkbox" name="extra" id="acchiughe" value="anchovies">Anchovies</label>
-          </div><br>
-          <div class="checkbox">
-            <label id="arugala"><input type="checkbox" name="extra" id="rucola" value="arugala">Arugala</label>
-          </div><br>
-          <div class="checkbox">
-            <label id="grana padano"><input type="checkbox" name="extra" id="grana" value="grana padano">Handful of Grated Grana</label>
-          </div><br>
-          <div class="checkbox">
-            <label id="olio di peperoncini"><input type="checkbox" name="extra" id="olio" value="olio di peperoncini" >Olio di Peperoncini diavoletti (chili oil)</label>
-          </div><br>
-          <div class="checkbox">
-            <label id="tartufi"><input type="checkbox" name="extra" id="tartufi" value="tartufi" unchecked>Shaved Tartufi Bianchi (2 grams fresh white truffle)</label>
-          </div><br>
+        <form>
+          <div id="pizza-pencil">
+
+              <div class="selectors">
+                <div class="var-selector">
+                  <div class="form-group">
+                    <label for="type">Varieties... I Nostri Sette Sorelle:</label>
+                    <br>
+                    <select id="type">
+                      <option >Marinara (tomato, garlic, oreg., basil)</option>
+                      <option >Margherita (tomato, mozz., basil)</option>
+                      <option >Margherita with Buffalo Mozzarella</option>
+                      <option >Pizza al Four Seasons (tomato, prosciutto, porcini, olives and anchovies)</option>
+                      <option >Sausage and Broccoli Rabe w/ Provola</option>
+                      <option >Tuna w/ Fior di Latte</option>
+                      <option >Wurstel e Patatine</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="size-selector">
+                  <div class="form-group">
+                    <label for="size">Sizes of Pizze:</label>
+                    <br>
+                    <div class="selectasize">
+                      <select id="size">
+                        <option id="small">small (20cm)</option>
+                        <option id="medium">medium (35cm)</option>
+                        <option id="large">large (50cm)</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <br>
+
+              <div class="extras">
+              <h3>Extras!</h3>
+              <br>
+              <label "anchovies"><input type="checkbox" value="anchovies">Anchovies</label>
+              <br>
+              <label "arugala"><input type="checkbox" value="arugala">Arugala</label>
+              <br>
+              <label "grana padano"><input type="checkbox" value="grana padano">Handful of Grated Grana</label>
+
+              <label "olio di peperoncini"><input type="checkbox" value="olio di peperoncini" >Olio di Peperoncini diavoletti (chili oil)</label>
+
+              <label "tartufi"><input type="checkbox"  value="tartufi" unchecked>Shaved Tartufi Bianchi (2 grams fresh white truffle)</label>
+              <br>
+            </div>
+
+          <button type="submit" class="btn">Add it up!</button>
+        </form>
+
+        <div id="results" class="container">
+          <h2>Won't be long now...</h2>
+          <div id="selections">
+            <ul>
+            </ul>
+          </div>
+          <div id="wholePrice">
+            <ul>
+            </ul>
+          </div>
         </div>
-        <button type="submit" class="btn">Add it up!</button>
-      </form>
-    </div>
-    <img src="css/pazzOut.png" alt="B/W Pizza Stencil" />
-    <div id="results" class="container">
-      <h2>Won't be long now...</h2>
-      <div id="selections">
-        <ul>
-        </ul>
-      </div>
-      <div id="wholePrice">
-        <ul>
-        </ul>
       </div>
     </div>
   </body>
